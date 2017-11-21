@@ -6,10 +6,12 @@ using UnityEngine;
 public class BulletController : MonoBehaviour {
 
     public float speed = 5.0f;
+    public bool belongsToPlayer = true;
     
     // Use this for initialization
 	void Start () {
-        
+        if (!belongsToPlayer)
+            speed = 3.0f;
 	}
 	
 	// Update is called once per frame

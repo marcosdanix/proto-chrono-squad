@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour {
     public GameObject bullet;
     public GameObject player;
 
+    private float shootTimer = 2.0f;
     private Rigidbody2D rb;
     internal bool grounded;
     private float direction = -1.0f;
@@ -28,10 +29,22 @@ public class EnemyController : MonoBehaviour {
         else
             direction = 1.0f;
         transform.localScale = new Vector3(direction, 1.0f, 1.0f);
+
+        shootTimer -= Time.deltaTime;
+
+
     }
 
-    // Update is called once per frame
-    void FixedUpdate ()
+    void LateUpdate()
     {
+        if (shootTimer <= 0)
+        {
+            var fired = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
+            var firedComp = fired.GetComponent<BulletController>();
+            firedComp.belongsToPlayer = false;
+            firedComp.SetDirection(direction);
+            shootTimer = 2.0f;
+        }
     }
+
 }
