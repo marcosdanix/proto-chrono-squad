@@ -57,6 +57,7 @@ public class ChronoBreakCharacter : MonoBehaviour, IChronoObject {
             this.isRecordState = false;
             this.isRewindState = true;
             this.rb.simulated = false;
+            GetComponent<PlayerController>().enabled = false;
         }
         else
         {
