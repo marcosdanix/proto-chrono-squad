@@ -9,7 +9,6 @@ public class EnemyController : MonoBehaviour {
 
     private float shootTimer = 2.0f;
     private Rigidbody2D rb;
-    internal bool grounded;
     private float direction = -1.0f;
     private Transform bulletSpawn;
     
@@ -37,7 +36,7 @@ public class EnemyController : MonoBehaviour {
 
     void LateUpdate()
     {
-        if (shootTimer <= 0)
+        if (shootTimer <= 0.0f)
         {
             var fired = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
             var firedComp = fired.GetComponent<BulletController>();

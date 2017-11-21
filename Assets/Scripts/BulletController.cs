@@ -11,7 +11,7 @@ public class BulletController : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         if (!belongsToPlayer)
-            speed = 3.0f;
+            this.speed = 3.0f;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +22,6 @@ public class BulletController : MonoBehaviour {
     internal void SetDirection(float direction)
     {
         var rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(speed * direction, 0.0f);
+        rb.velocity = new Vector2(this.speed * direction, 0.0f);
     }
 }
