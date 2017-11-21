@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float Speed;
+    public float Jump;
     public GameObject bullet;
 
     private Rigidbody2D rb;
-    private bool grounded;
+    internal bool grounded;
     private float direction = 1.0f;
     private Transform bulletSpawn;
     
@@ -29,6 +30,11 @@ public class PlayerController : MonoBehaviour {
             var firedComp = fired.GetComponent<BulletController>();
             firedComp.SetDirection(direction);
             
+        }
+
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            rb.AddForce(Jump * Vector2.up);
         }
     }
 
