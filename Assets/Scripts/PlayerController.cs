@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float Speed;
     public float Jump;
     public GameObject bullet;
+    public GameObject mainCamera;
 
     private Rigidbody2D rb;
     internal bool grounded;
@@ -24,7 +25,9 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+
+        if (Input.GetButtonDown("Fire1"))
         {
             var fired = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
             var firedComp = fired.GetComponent<BulletController>();
