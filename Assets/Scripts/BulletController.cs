@@ -16,6 +16,7 @@ public class BulletController : MonoBehaviour {
         rb.velocity = new Vector2(this.speed * direction, 0.0f);
     }
 
+    /** /
     void OnDestroy()
     {
         var managerObject = GameObject.Find("Chrono Break Manager");
@@ -26,4 +27,5 @@ public class BulletController : MonoBehaviour {
         manager.recordEvent(new BulletDestroyEvent(this, Mathf.Sign(rb.velocity.x)));
 
     }
+    /**/
 }
