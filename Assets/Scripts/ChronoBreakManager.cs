@@ -6,7 +6,7 @@ public class ChronoBreakManager : MonoBehaviour {
 
     public const int RECORDLENGTH = 600;
     public Text text;
-    //private Dictionary<int, List<IChronoEvent>> events;
+    private Dictionary<int, List<IChronoEvent>> events;
     private int frame = 0;
     private bool rewindState = false;
     private List<IChronoObject> objects = new List<IChronoObject>();
@@ -28,7 +28,8 @@ public class ChronoBreakManager : MonoBehaviour {
             foreach (var obj in objects)
             {
                 obj.ChangeState();
-            }
+            }     
+            
         }
         else if (rewindState && --frame == 0)
         {
@@ -41,9 +42,24 @@ public class ChronoBreakManager : MonoBehaviour {
             CameraController.player = this.player;
 
         }
+
+
+        if (!rewindState && events.ContainsKey(frame))
+        {
+            foreach (var _event in events[frame])
+            {
+                _event.doEvent();
+            }
+        }
+        else if (rewindState && events.ContainsKey(frame))
+        {
+            foreach (var _event in events[frame])
+            {
+                _event.undoEvent();
+            }
+        }
     }
     
-    /*
     internal void recordEvent(IChronoEvent addedEvent)
     {
         if (!events.ContainsKey(frame))
@@ -53,7 +69,6 @@ public class ChronoBreakManager : MonoBehaviour {
 
         events[frame].Add(addedEvent);
     }
-    */
 
     internal void registerObject(ChronoBreakCharacter chronoBreakCharacter)
     {
