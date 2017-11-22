@@ -15,4 +15,15 @@ public class BulletController : MonoBehaviour {
         var rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(this.speed * direction, 0.0f);
     }
+
+    void OnDestroy()
+    {
+        var managerObject = GameObject.Find("Chrono Break Manager");
+        var manager = managerObject.GetComponent<ChronoBreakManager>();
+        var rb = GetComponent<Rigidbody2D>();
+
+
+        manager.recordEvent(new BulletDestroyEvent(this, Mathf.Sign(rb.velocity.x)));
+
+    }
 }

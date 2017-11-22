@@ -9,13 +9,13 @@ public class BulletInstantiateEvent : IChronoEvent
     private GameObject instance;
     
 
-    public BulletInstantiateEvent(GameObject instance, BulletController bc, bool direction)
+    public BulletInstantiateEvent(GameObject instance, float direction)
     {
+        this.instance = instance;
+        var bc = this.instance.GetComponent<BulletController>();
         this.position = bc.transform.position;
         this.belongsToPlayer = bc.belongsToPlayer;
-        this.direction = direction;
-        this.instance = instance;
-
+        this.direction = (direction > 0.0f);
     }
     
     public void doEvent()

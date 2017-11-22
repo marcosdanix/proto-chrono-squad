@@ -10,12 +10,12 @@ public class BulletDestroyEvent : IChronoEvent
     //private GameObject culprit;
     //private GameObject casualty;
 
-    public BulletDestroyEvent(GameObject instance, BulletController bc, bool direction)
+    public BulletDestroyEvent(BulletController bc, float direction)
     {
         this.position = bc.transform.position;
         this.belongsToPlayer = bc.belongsToPlayer;
-        this.direction = direction;
-        this.instance = instance;
+        this.direction = direction > 0.0f;
+        this.instance = bc.gameObject;
 
     }
     
