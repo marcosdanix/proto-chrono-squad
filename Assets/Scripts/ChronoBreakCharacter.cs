@@ -30,7 +30,7 @@ public class ChronoBreakCharacter : MonoBehaviour, IChronoObject {
     {
         var managerObject = GameObject.Find("Chrono Break Manager");
         //manager.GetComponent<ChronoBreakManager>().recordEvent(new CreatedEvent(this));
-        this.manager = manager.GetComponent<ChronoBreakManager>();
+        this.manager = managerObject.GetComponent<ChronoBreakManager>();
         this.manager.registerObject(this);
 
     }

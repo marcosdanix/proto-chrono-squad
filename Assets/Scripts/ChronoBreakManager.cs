@@ -4,20 +4,16 @@ using UnityEngine.UI;
 
 public class ChronoBreakManager : MonoBehaviour {
 
-    public const int RECORDLENGTH = 600;
+    public const int RECORDLENGTH = 200;
     public Text text;
-    private Dictionary<int, List<IChronoEvent>> events;
+    private Dictionary<int, List<IChronoEvent>> events = new Dictionary<int, List<IChronoEvent>>();
     private int frame = 0;
     private bool rewindState = false;
     private List<IChronoObject> objects = new List<IChronoObject>();
 
     public GameObject player;
     public Vector3 spawn;
-
-	// Use this for initialization
-	void Start () {
-
-    }
+    
 	
 	void LateUpdate () {
         text.text = "FRAME: " + frame;
