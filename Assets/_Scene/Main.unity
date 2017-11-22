@@ -199,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 868706630}
   player: {fileID: 1126895578677258, guid: 1ec1de5cce80dd74692c8df9426f9d5a, type: 2}
-  spawn: {x: 0, y: 4, z: 0}
+  spawn: {x: -15, y: 4, z: 0}
 --- !u!4 &215435340
 Transform:
   m_ObjectHideFlags: 0
@@ -1180,29 +1180,6 @@ Prefab:
     - target: {fileID: 4247670202622934, guid: 1ec1de5cce80dd74692c8df9426f9d5a, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114891707470306100, guid: 1ec1de5cce80dd74692c8df9426f9d5a,
-        type: 2}
-      propertyPath: Jump
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 50655902737327028, guid: 1ec1de5cce80dd74692c8df9426f9d5a,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4714871476044966, guid: 1ec1de5cce80dd74692c8df9426f9d5a, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114891707470306100, guid: 1ec1de5cce80dd74692c8df9426f9d5a,
-        type: 2}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 463567100}
-    - target: {fileID: 1126895578677258, guid: 1ec1de5cce80dd74692c8df9426f9d5a, type: 2}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ec1de5cce80dd74692c8df9426f9d5a, type: 2}
