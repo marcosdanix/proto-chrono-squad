@@ -13,6 +13,7 @@ public class ChronoBreakCharacter : MonoBehaviour, IChronoObject {
     private CharacterState[] stateRecord;
     private Rigidbody2D rb;
     private int frame;
+    private ChronoBreakManager manager;
 
     //initial state is record
     void Awake()
@@ -27,9 +28,10 @@ public class ChronoBreakCharacter : MonoBehaviour, IChronoObject {
     //Tell ChronoBreakManager I was created (and it knows about me)
     void Start ()
     {
-        var manager = GameObject.Find("Chrono Break Manager");
+        var managerObject = GameObject.Find("Chrono Break Manager");
         //manager.GetComponent<ChronoBreakManager>().recordEvent(new CreatedEvent(this));
-        manager.GetComponent<ChronoBreakManager>().registerObject(this);
+        this.manager = manager.GetComponent<ChronoBreakManager>();
+        this.manager.registerObject(this);
 
     }
 	
@@ -64,4 +66,10 @@ public class ChronoBreakCharacter : MonoBehaviour, IChronoObject {
             this.isRewindState = !this.isRewindState; //State pattern is overrated
         }
     }
+
+    internal void recordEvent(IChronoEvent e) 
+    {
+        this.manager.recordEvent(e);
+    }
+
 }

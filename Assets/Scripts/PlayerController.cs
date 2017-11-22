@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     internal bool grounded;
     private float direction = 1.0f;
     private Transform bulletSpawn;
+    private ChronoBreakCharacter cb;
     
 
 	// Use this for initialization
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour {
         this.rb = GetComponent<Rigidbody2D>();
         bulletSpawn = this.transform.Find("Bullet Spawn");
         GetComponent<PlayerController>().enabled = true;
+        this.cb = GetComponent<ChronoBreakCharacter>();
     }
 
     void Update()
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour {
             var fired = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
             var firedComp = fired.GetComponent<BulletController>();
             firedComp.SetDirection(direction);
+            //this.cb.recordEvent(new BulletInstantiateEvent(fired, ))
             
         }
 
