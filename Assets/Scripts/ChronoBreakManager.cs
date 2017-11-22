@@ -66,7 +66,7 @@ public class ChronoBreakManager : MonoBehaviour {
         events[frame].Add(addedEvent);
     }
 
-    internal void registerObject(ChronoBreakCharacter chronoBreakCharacter)
+    internal void registerObject(IChronoObject chronoBreakCharacter)
     {
         objects.Add(chronoBreakCharacter);
     }
