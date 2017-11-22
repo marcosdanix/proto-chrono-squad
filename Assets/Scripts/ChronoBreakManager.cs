@@ -16,8 +16,8 @@ public class ChronoBreakManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+
+    }
 	
 	void LateUpdate () {
         text.text = "FRAME: " + frame;

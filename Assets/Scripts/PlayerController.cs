@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour {
     public float Speed;
     public float Jump;
     public GameObject bullet;
-    public GameObject mainCamera;
 
     private Rigidbody2D rb;
     internal bool grounded;
@@ -18,7 +17,6 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        mainCamera = (GameObject)GameObject.FindWithTag("MainCamera");
         this.rb = GetComponent<Rigidbody2D>();
         bulletSpawn = this.transform.Find("Bullet Spawn");
         GetComponent<PlayerController>().enabled = true;
@@ -26,7 +24,6 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-        mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -10.0f);
 
         if (Input.GetButtonDown("Fire1"))
         {

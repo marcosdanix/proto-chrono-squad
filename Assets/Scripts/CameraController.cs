@@ -6,16 +6,19 @@ using UnityEngine;
 
 class CameraController : MonoBehaviour
 {
-        public float leftLimit = -50.0f;
-        public float rightLimit = 50.0f;
+    public float leftLimit = -50.0f;
+    public float rightLimit = 50.0f;
 
-        void Awake()
-        {
-           
-        }
+    public Transform player;
 
-        void Update()
-        {
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, leftLimit, rightLimit), transform.position.y, transform.position.z);
-        }
+    void Awake()
+    {
+        player = GameObject.FindWithTag("Player").transform;
+    }
+
+    void Update()
+    {
+        player = GameObject.FindWithTag("Player").transform;
+        transform.position = new Vector3(Mathf.Clamp(player.position.x, leftLimit, rightLimit), player.position.y, -10.0f);
+    }
 }
