@@ -37,10 +37,11 @@ public class ChronoBreakManager : MonoBehaviour {
             {
                 obj.ChangeState();
             }
-            Instantiate(player, spawn, Quaternion.identity);
-            
+            player = Instantiate(player, spawn, Quaternion.identity);
+            CameraController.player = this.player;
+
         }
-	}
+    }
     
     /*
     internal void recordEvent(IChronoEvent addedEvent)

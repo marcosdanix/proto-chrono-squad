@@ -9,16 +9,15 @@ class CameraController : MonoBehaviour
     public float leftLimit = -50.0f;
     public float rightLimit = 50.0f;
 
-    public Transform player;
+    public static GameObject player;
 
-    void Awake()
+    void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
+        player = (GameObject) GameObject.FindWithTag("Player");
     }
 
     void Update()
     {
-        player = GameObject.FindWithTag("Player").transform;
-        transform.position = new Vector3(Mathf.Clamp(player.position.x, leftLimit, rightLimit), player.position.y, -10.0f);
+        transform.position = new Vector3(Mathf.Clamp(player.transform.position.x, leftLimit, rightLimit), player.transform.position.y, -10.0f);
     }
 }
