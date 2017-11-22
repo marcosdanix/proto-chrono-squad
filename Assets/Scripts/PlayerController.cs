@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour {
             var fired = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
             var firedComp = fired.GetComponent<BulletController>();
             firedComp.SetDirection(direction);
-            this.cb.recordEvent(new BulletInstantiateEvent(fired, direction));
             
         }
 

@@ -8,7 +8,8 @@ public class OnExitBoundsDestroy : MonoBehaviour {
     {
         if (collision.CompareTag("Bound"))
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 }
