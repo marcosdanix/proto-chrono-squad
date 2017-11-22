@@ -50,4 +50,12 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = new Vector2(Speed * hor, rb.velocity.y);
         transform.localScale = new Vector3(direction, 1.0f, 1.0f);
 	}
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Damage"))
+        {
+            this.cb.Rewind();
+        }
+    }
 }

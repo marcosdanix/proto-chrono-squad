@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ChronoBreakManager : MonoBehaviour {
 
-    public const int RECORDLENGTH = 200;
+    public const int RECORDLENGTH = 600;
     public Text text;
     private Dictionary<int, List<IChronoEvent>> events = new Dictionary<int, List<IChronoEvent>>();
     private int frame = 0;
@@ -34,8 +34,8 @@ public class ChronoBreakManager : MonoBehaviour {
             {
                 obj.ChangeState();
             }
-            player = Instantiate(player, spawn, Quaternion.identity);
-            CameraController.player = this.player;
+            var newPlayer = Instantiate(player, spawn, Quaternion.identity);
+            CameraController.player = newPlayer;
 
         }
 
@@ -69,5 +69,17 @@ public class ChronoBreakManager : MonoBehaviour {
     internal void registerObject(ChronoBreakCharacter chronoBreakCharacter)
     {
         objects.Add(chronoBreakCharacter);
+    }
+
+    internal void Rewind()
+    {
+        if (!rewindState)
+        {
+            rewindState = true;
+            foreach (var obj in objects)
+            {
+                obj.ChangeState();
+            }
+        }
     }
 }

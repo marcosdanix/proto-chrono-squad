@@ -29,6 +29,6 @@ public class BulletInstantiateEvent : IChronoEvent
 
     public void undoEvent()
     {
-        Object.Destroy(this.instance);
+        //Object.Destroy(this.instance);
     }
 }

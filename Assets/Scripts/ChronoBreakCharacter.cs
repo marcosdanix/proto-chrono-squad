@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -64,6 +65,11 @@ public class ChronoBreakCharacter : MonoBehaviour, IChronoObject {
         {
             this.isRewindState = !this.isRewindState; //State pattern is overrated
         }
+    }
+
+    internal void Rewind()
+    {
+        this.manager.Rewind();
     }
 
     internal void recordEvent(IChronoEvent e) 
