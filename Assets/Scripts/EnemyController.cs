@@ -6,11 +6,13 @@ public class EnemyController : MonoBehaviour {
 
     public GameObject bullet;
     public GameObject player;
+    public float enemySpeed;
 
     private float shootTimer = 2.0f;
     private Rigidbody2D rb;
     private float direction = -1.0f;
     private Transform bulletSpawn;
+    
     
 
 	// Use this for initialization
@@ -41,7 +43,8 @@ public class EnemyController : MonoBehaviour {
             var fired = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
             var firedComp = fired.GetComponent<BulletController>();
             firedComp.belongsToPlayer = false;
-            firedComp.SetDirection(direction);
+            firedComp.speed = enemySpeed;
+            firedComp.SetDirection(direction);            
             shootTimer = 2.0f;
         }
     }

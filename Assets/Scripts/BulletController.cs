@@ -5,19 +5,10 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour {
 
-    public float speed = 5.0f;
+    public float speed;
     public bool belongsToPlayer = true;
     
     // Use this for initialization
-	void Start () {
-        if (!belongsToPlayer)
-            this.speed = 3.0f;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     internal void SetDirection(float direction)
     {

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ChronoBreakManager : MonoBehaviour {
 
-    public const int RECORDLENGTH = 300;
+    public const int RECORDLENGTH = 600;
     public Text text;
     //private Dictionary<int, List<IChronoEvent>> events;
     private int frame = 0;
